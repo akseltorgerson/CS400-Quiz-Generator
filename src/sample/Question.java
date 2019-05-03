@@ -5,9 +5,9 @@
 // Files:           (Quiz,JsonExport,Main,JsonParser,Quiz,Topic)
 // Course:          (CS 400, 2019)
 //
-// Author:          (Dylan Clark)
-// Email:           (daclark@wisc.edu)
-// Lecturer's Name: (Andrew Kuemmel)
+// Author:          (See README)
+// Email:           (See README)
+// Lecturer's Name: (See README)
 //
 //////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
 //
@@ -39,7 +39,7 @@ import java.util.ArrayList;
 /**
  * Question class that serves as the class that stores all of the fields of the question
  * these questions are added to the Topic class and the Quiz class.
- * @author Dylan Clark
+ * @author Parker Schroeder, Dylan Clark, Zachary Chanak, Jacob Mayl
  */
 public class Question {
     // Field for the QuestionNode

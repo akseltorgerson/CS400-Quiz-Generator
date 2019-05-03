@@ -1,12 +1,12 @@
 //////////////////// ALL ASSIGNMENTS INCLUDE THIS SECTION /////////////////////
 //
 // Title:           JsonExport
-// Files:           (Quiz,Question,Main,JsonParser,Quiz,Topic)
+// Files:           (Question,Main,JsonParser,Quiz,Topic)
 // Course:          (CS 400, 2019)
 //
-// Author:          (Dylan Clark)
-// Email:           (daclark@wisc.edu)
-// Lecturer's Name: (Andrew Kuemmel)
+// Author:          (See README)
+// Email:           (See README)
+// Lecturer's Name: (See README)
 //
 //////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
 //
@@ -46,7 +46,7 @@ import org.json.simple.parser.JSONParser;
 
 /**
  * Class that saves the current questions in the quiz to a JSON file
- * @author Dylan Clark
+ * @author  Parker Schroeder, Dylan Clark, Zachary Chanak, Jacob Mayl
  */
 public class JsonExport {
     /**

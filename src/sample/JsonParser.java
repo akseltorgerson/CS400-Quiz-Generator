@@ -4,9 +4,9 @@
 // Files:           (Quiz,JsonExport,Main,Question,Quiz,Topic)
 // Course:          (CS 400, 2019)
 //
-// Author:          (Dylan Clark)
-// Email:           (daclark@wisc.edu)
-// Lecturer's Name: (Andrew Kuemmel)
+// Author:          (See README)
+// Email:           (See README)
+// Lecturer's Name: (See README)
 //
 //////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
 //
@@ -46,7 +46,7 @@ import org.json.simple.parser.JSONParser;
  * JsonParser class that parses a json file to read questions and add
  * them to the quiz.
  *
- * @author Dylan Clark
+ * @author Parker Schroeder, Dylan Clark, Zachary Chanak, Jacob Mayl
  */
 public class JsonParser {
     ArrayList<Question> QuestionList; //Stores the questions added

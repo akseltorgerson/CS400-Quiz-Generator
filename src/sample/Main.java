@@ -1,4 +1,48 @@
+//////////////////// ALL ASSIGNMENTS INCLUDE THIS SECTION /////////////////////
+//
+// Title:           Question
+// Files:           (Quiz,JsonExport,Main,JsonParser,Quiz,Topic)
+// Course:          (CS 400, 2019)
+//
+// Author:         	Aksel Torgerson, Dylan Clark, Zach Chanak, Jacob Mayl
+//									Parker Schroeder
+// Email:           (see README)
+// Lecturer's Name: (see README)
+//
+//////////////////// PAIR PROGRAMMERS COMPLETE THIS SECTION ///////////////////
+//
+// Partner Name:    (See README)
+// Partner Email:   (See README)
+// Partner Lecturer's Name: (See README)
+//
+// VERIFY THE FOLLOWING BY PLACING AN X NEXT TO EACH TRUE STATEMENT:
+//    N/A  Write-up states that pair programming is allowed for this assignment.
+//    N/A  We have both read and understand the course Pair Programming Policy.
+//    N/A  We have registered our team prior to the team registration deadline.
+//
+///////////////////////////// CREDIT OUTSIDE HELP /////////////////////////////
+//
+// Students who get help from sources other than their partner must fully
+// acknowledge and credit those sources of help here.  Instructors and TAs do
+// not need to be credited here, but tutors, friends, relatives, room mates,
+// strangers, and others do.  If you received no outside help from either type
+//  of source, then please explicitly indicate NONE.
+//
+// Persons:         N/A
+// Previous Course: N/A
+// Online Sources:  N/A
+//
+/////////////////////////////// 80 COLUMNS WIDE ///////////////////////////////
 package sample;
+import java.util.ArrayList;
+
+/**
+ * The main class serves as the class that starts the program, and contains all
+ * scenes, as well as all the transitions between them.
+ * @author Dylan Clark, Aksel Torgerson, Zach Chanak, Jacob May,l Parker Schroeder
+ */
+
+
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileWriter;
@@ -23,62 +67,70 @@ import javafx.stage.Stage;
 import org.json.simple.parser.ParseException;
 
 public class Main extends Application {
-
+    //initialize vars
     static Quiz quiz;
     private int questionNumber = 1;
+
+    /**
+     * this method contains all the scenes that the user can access,
+     * with correct transitions to the next scene, depending on the
+     * button that is pushed.
+     * @param primaryStage is the stage all the scenes take place in.
+     *
+     */
     @Override public void start(Stage primaryStage) throws Exception {
 
         // ---------------------------------------------------------- MAIN SCREEN ----------------------
         Label titleLabel = new Label("Quiz Generator"); // all the nodes that go on the main screen scene
-        titleLabel.setFont(Font.font("Denmark", 30));
-        Button startButton = new Button("Start Quiz");
+        titleLabel.setFont(Font.font("Denmark", 30));		//contains:
+        Button startButton = new Button("Start Quiz");	//start quiz button
         startButton.setFont(Font.font("Denmark", 15));
-        Button newQuestionButton = new Button("Add Question");
+        Button newQuestionButton = new Button("Add Question"); //add question button
         newQuestionButton.setFont(Font.font("Denmark", 15));
-        Button importButton = new Button("Import Questions");
+        Button importButton = new Button("Import Questions"); //import question button
         importButton.setFont(Font.font("Denmark", 15));
-        Button exportButton = new Button("Export Questions");
+        Button exportButton = new Button("Export Questions"); //export question button
         exportButton.setFont(Font.font("Denmark", 15));
-        Button quitButton = new Button("Quit");
+        Button quitButton = new Button("Quit"); //quit button
         quitButton.setFont(Font.font("Denmark", 15));
 
         // --------------------------------------------------------- ADD QUESTION -----------------------
-        Label addQuestionTitle = new Label("Add Question"); // all of the nodes that go on the add question scene
+        Label addQuestionTitle = new Label("Add Question"); // all of the nodes that go on the add question scene. Contains:
         addQuestionTitle.setFont(Font.font("Denmark", 30));
-        Label questionPrompt = new Label("Enter Question: ");
+        Label questionPrompt = new Label("Enter Question: ");  //adds title
         questionPrompt.setFont(Font.font("Denmark", 15));
-        Label topicPrompt = new Label("Enter Topic: ");
+        Label topicPrompt = new Label("Enter Topic: "); //adds label
         topicPrompt.setFont(Font.font("Denmark", 15));
-        Label answer1 = new Label("Enter Correct Answer: ");
+        Label answer1 = new Label("Enter Correct Answer: "); //adds label
         answer1.setFont(Font.font("Denmark", 15));
         answer1.setTextFill(Paint.valueOf("Green"));
-        Label answer2 = new Label("Enter Alternative Answer: ");
+        Label answer2 = new Label("Enter Alternative Answer: "); //adds label
         answer2.setFont(Font.font("Denmark", 15));
         answer2.setTextFill(Paint.valueOf("Red"));
-        Label answer3 = new Label("Enter Alternative Answer: ");
+        Label answer3 = new Label("Enter Alternative Answer: "); //adds label
         answer3.setFont(Font.font("Denmark", 15));
         answer3.setTextFill(Paint.valueOf("Red"));
-        Label answer4 = new Label("Enter Alternative Answer: ");
+        Label answer4 = new Label("Enter Alternative Answer: "); //adds label
         answer4.setFont(Font.font("Denmark", 15));
         answer4.setTextFill(Paint.valueOf("Red"));
-        Label answer5 = new Label("Enter Alternative Answer: ");
+        Label answer5 = new Label("Enter Alternative Answer: "); //adds label
         answer5.setFont(Font.font("Denmark", 15));
         answer5.setTextFill(Paint.valueOf("Red"));
-        Label questionImage = new Label("Image path: ");
+        Label questionImage = new Label("Image path: "); //adds label
         questionImage.setFont(Font.font("Denmark", 15));
-        Label totalNumberOfQuestions = new Label("Number of questions loaded: " + 0);
+        Label totalNumberOfQuestions = new Label("Number of questions loaded: " + 0); //adds label
         totalNumberOfQuestions.setAlignment(Pos.CENTER_LEFT);
         totalNumberOfQuestions.setFont(Font.font("Denmark", 15));
-        Label totalNumberOfTopics = new Label("Number of different topics: " + 0);
+        Label totalNumberOfTopics = new Label("Number of different topics: " + 0); //adds label
         totalNumberOfTopics.setAlignment(Pos.CENTER_LEFT);
         totalNumberOfTopics.setFont(Font.font("Denmark", 15));
 
-        Button back = new Button("Back");
-        Button addQuestion = new Button("Add Question");
-
+        Button back = new Button("Back"); //back button to return to main
+        Button addQuestion = new Button("Add Question"); //add Question button
+        //add text fields to allow user to input question and topic
         TextField newQuestion = new TextField();
         TextField newTopic = new TextField();
-
+        //add text fields to allow user to input answers and an image
         TextField a1 = new TextField();
         TextField a2 = new TextField();
         TextField a3 = new TextField();
@@ -317,12 +369,12 @@ public class Main extends Application {
         Scene exportPage = new Scene(exportScreen, 330, 130);
 
         // ----------------------------------------------------------------------------- STAGE STUFF
-        primaryStage.setTitle("Quiz Generator");
-        primaryStage.setScene(mainPage);
-        primaryStage.show();
+        primaryStage.setTitle("Quiz Generator"); //sets title
+        primaryStage.setScene(mainPage); //sets scene to mainPage
+        primaryStage.show(); //show scene
 
         // ------------------------------------------------------------------------------ BUTTON ACTIONS
-        // main screen actions
+        // main screen actions. Each button directs the stage to another scene
         importButton.setOnAction(event -> primaryStage.setScene(importPage));
         backToMain3.setOnAction(event -> primaryStage.setScene(mainPage));
         exportButton.setOnAction(event -> primaryStage.setScene(exportPage));
@@ -471,7 +523,7 @@ public class Main extends Application {
 
         addQuestion.setOnAction(event -> {
             boolean success = true;
-
+            //check if the fields have been correctly inputted
             success = (checkTextField(newQuestion)) ? success : false;
             success = (checkTextField(newTopic)) ? success : false;
             success = (checkTextField(a1)) ? success : false;
@@ -501,6 +553,7 @@ public class Main extends Application {
                 allAnswers.add(a5.getText());
                 Collections.shuffle(allAnswers);
 
+                //creates the question with given inputs
                 Question question =
                     new Question("", newQuestion.getText(), newTopic.getText(), imagePath.getText(),
                         a1.getText(), allAnswers);
@@ -512,7 +565,11 @@ public class Main extends Application {
             totalNumberOfTopics.setText("Number of different topics: " + quiz.topicNames.size());
         });
     }
-
+    /**
+     *
+     * @param textField is the users input to the textField
+     * @return boolean true if response is valid, false otherwise
+     */
     private boolean checkTextField(TextField textField) {
         if (textField.getText() == null || textField.getText().equals("")) {
             textField.setPromptText("Enter a valid response");
@@ -520,7 +577,17 @@ public class Main extends Application {
         }
         return true;
     }
-
+    /**
+     * this method is called when the user clicks the button to go to the next slide.
+     * Reveals if the user was right or not and then transitions to the next question
+     *
+     * @param topicLabel the label of the topic
+     * @param questionLabel the label of the question
+     * @param answersBox the box containing the answers
+     * @param viewImage the place where the question's image is located
+     * @param answerResult the label that says if the user got the right anwer
+     * @param questionNum the label of which question the user is on
+     */
     private void transitionToNextQuestion(Label topicLabel, Label questionLabel,
         ComboBox<String> answersBox, ImageView viewImage, Label answerResult, Label questionNum) {
         Question question = quiz.questionList.get(0);
@@ -539,7 +606,11 @@ public class Main extends Application {
             viewImage.setImage(null);
         }
     }
-
+    /**
+     * @param finalCorrect the label of how many questions the user got right
+     * @param finalWrong the label of how many questions the user got wrong
+     * @param percentage the percentage the of correct answers
+     */
     private void transitionToEndScreen(Label finalCorrect, Label finalWrong, Label percentage) {
         finalCorrect.setText("Correct: " + quiz.getCorrect());
         finalWrong.setText("Total Number: " + (quiz.getIncorrect() + quiz.getCorrect()));
@@ -547,7 +618,7 @@ public class Main extends Application {
     }
 
     public static void main(String[] args) {
-        quiz = new Quiz();
-        launch(args);
+        quiz = new Quiz(); //creates a new quiz
+        launch(args); //launches prog
     }
 }
